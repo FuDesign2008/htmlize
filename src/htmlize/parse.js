@@ -5,8 +5,7 @@
  * @date  2014-12-16
  */
 define(function (require) {
-    var console = require('../core/console'),
-        TRIM = require('../core/str/trim'),
+    var TRIM = require('../core/str/trim'),
         STARTS_WITH = require('../core/str/startsWith'),
         _ = require('../core/underscore'),
         /**

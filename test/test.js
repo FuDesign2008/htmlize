@@ -2,11 +2,11 @@
 (function () {
 
     var $ = window.jQuery || window.$,
-        plainize = window.plainize,
-        testUrl = './huxiu.txt';
+        htmlize = window.htmlize,
+        testUrl = './link.txt';
 
-    if (!plainize) {
-        document.body.innerHTML = '<h1>NO window.plainize</h1>';
+    if (!htmlize) {
+        document.body.innerHTML = '<h1>NO window.htmlize</h1>';
         return;
     }
 
@@ -14,18 +14,12 @@
         url: testUrl,
         dataType: 'text',
         success: function (data) {
-            var plainized = plainize.plainize(data, {}),
-                $textarea = $('textarea', document.body),
-                $wrapper = $('#wrapper'),
-                parsed = plainize.parseHTML(data, document, true);
+            var html = htmlize.htmlize(data),
+                wrapper = document.getElementById('wrapper');
 
-            $(parsed).find('script').remove();
+            wrapper.innerHTML = html;
 
-            $(parsed).appendTo($wrapper);
-
-            $textarea.text(plainized).css({
-                height: $wrapper.height()
-            });
+            $('textarea').val(data);
 
         }
     });

@@ -1,9 +1,11 @@
 htmlize
 =======
 
-parse plain text to html with url, line break, list recognition
+Parse plain text to html with url, line break, list recognition
 
-##auto recognition items
+##Introduction
+
+The htmlize can convert plain text to html with recognition for:
 
 ### url
 
@@ -39,3 +41,29 @@ Unorder list signs
 
 ##example
 
+
+##API
+
+```javascript
+
+htmlize.htmlize(text);
+
+```
+
+For example:
+
+```javascript
+
+var plainText = 'xxxx...',
+    html = window.htmlize.htmlize(plainText),
+    container = document.getElementById('container');
+
+if (container) {
+    container.innerHTML = html;
+}
+
+```
+
+##Feedback
+
+If you have any advice, please feel free to contact with me:  FuDesign2008@163.com
