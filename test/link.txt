@@ -1,0 +1,53 @@
+
+Welcome to htmlize
+
+https://github.com/FuDesign2008/htmlize
+
+--------------
+
+INTRODUCTION
+
+The htmlize can convert plain text to html with recognition for
+
+1. url
+    * norml url (http://www.example.com or www.example.com)
+    * email address (name@example.com)
+2. line break
+    * convert to a br tag
+3. horizontal line
+    * convert to a hr tag
+4. nested order list
+5. nested unorder list
+6. mutliple whitespaces
+7. tab
+
+---------------
+
+API
+
+
+htmlize.htmlize(text);
+
+For example:
+
+```javascript
+
+var plainText = 'xxxx...',
+    html = window.htmlize.htmlize(plainText),
+    container = document.getElementById('container');
+
+if (container) {
+    container.innerHTML = html;
+}
+
+```
+
+---------------
+
+THE AUTHOR
+
+If you have any advice, please feel free to contact with me:  FuDesign2008@163.com
+
+
+
+
