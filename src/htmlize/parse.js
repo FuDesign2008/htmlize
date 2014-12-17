@@ -5,13 +5,13 @@
  * @date  2014-12-16
  */
 define(function (require) {
-    var console = require('./core/console'),
+    var console = require('../core/console'),
         TRIM = require('../core/str/trim'),
         STARTS_WITH = require('../core/str/startsWith'),
-        _ = require('./core/underscore'),
+        _ = require('../core/underscore'),
         /**
          * @param {String} line
-         * @return {Integer}
+         * @return {Integer} level >= 1
          *
          */
         countListLevel = function (line) {
@@ -26,7 +26,7 @@ define(function (require) {
                 oneChar;
 
             if (!matched) {
-                return 0;
+                return 1;
             }
 
             matched = matched[0];
@@ -40,7 +40,9 @@ define(function (require) {
                 }
             }
 
-            return Math.ceil(counter / 4);
+            counter = Math.ceil(counter / 4) + 1;
+
+            return counter < 1 ? 1 : counter;
         },
         /**
          * @param {String} content
@@ -54,8 +56,8 @@ define(function (require) {
 
             _.each(parts, function (part) {
                 var text = content.substring(start, part.index),
-                    link = '<a href="' + _.escapse(part.full) + '">' +
-                        _.escapse(part.text) +  '</a>';
+                    link = '<a href="' + _.escape(part.full) + '">' +
+                        _.escape(part.text) +  '</a>';
                 if (text && text.length) {
                     arrContent.push({
                         content: text,
@@ -197,6 +199,16 @@ define(function (require) {
             if (!trimmed) {
                 return [{
                     content: '<br/>',
+                    plain: false
+                }];
+            }
+        },
+        horizotalLine: function (line) {
+            var reg = /^\s*-{3,}\s*$/;
+
+            if (reg.test(line)) {
+                return [{
+                    content: '<hr/>',
                     plain: false
                 }];
             }

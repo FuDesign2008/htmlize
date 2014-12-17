@@ -5,7 +5,37 @@ parse plain text to html with url, line break, list recognition
 
 ##auto recognition items
 
-1. url    --> &lt;a /&gt;
-1. line break  --> &lt;br/&gt;
-1. ordered list ( 1. xxx  2. xxx  or  1 xxx  2 xxxx ) --> &lt;ol/&gt;
-1. unorderd list ( * xxxx  * xxxx or - xxxx  - xxxx)  --> &lt;ul/&gt;
+### url
+
+Convert an url to an `<a/>` tag.
+
+* normal url
+* email address
+
+### line break
+
+Convert a line break to a `<br/>`.
+
+
+### horizontal line
+
+Convert a line of content that is composed by only with more than 3 `-` to a horizontal line.
+
+
+### (nested) orderlist
+
+Order list signs:
+
+* digit with one or more whitespaces (`2    hello`)
+* digit + dot with one or more whitespaces (`3.  world`)
+
+### (nested) unorderlist
+
+Unorder list signs
+
+* `*` with one or more whitespaces (`* hello`)
+* `-` with one or more whitespaces (`- hello`)
+
+
+##example
+
