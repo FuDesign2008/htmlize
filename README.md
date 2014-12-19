@@ -1,7 +1,7 @@
 htmlize
 =======
 
-Parse plain text to html with url, line break, list recognition
+Convert plain text to html with url, line break, list recognition
 
 ##Introduction
 
