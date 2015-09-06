@@ -98,7 +98,7 @@ define(function (require) {
         parseUrl = function (text) {
             text = text + '';
             /*jshint maxlen: 100*/
-            var urlReg = /(https?:\/\/|www\.|ssh:\/\/|ftp:\/\/)[a-z0-9&_+\-\?\/\.=\#,:]+/ig,
+            var urlReg = /(https?:\/\/|www\.|ssh:\/\/|ftp:\/\/)[a-z0-9&_+\-\?\/\.=\#,:@]+/ig,
                 matched,
                 arrMatched,
                 url;
