@@ -130,7 +130,6 @@ define(function (require) {
         },
         parseMail = function (text) {
             text = text + '';
-            /*jshint maxlen: 100*/
             var mailReg = /[a-z0-9_+\-\.]+@[a-z0-9_+\-\.]+/ig,
                 matched,
                 arrMatched,
